@@ -35,3 +35,20 @@ class Solution:
 
         return max_profit
 
+
+# REDO : 7/16/2025
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        # Time : 1:17
+        max_p = 0
+
+        l = 0
+        for r in range(len(prices)):
+            p = prices[r] - prices[l]
+            max_p = max(max_p, p)
+
+            if prices[r] < prices[l]:
+                l = r
+
+        return max_p
